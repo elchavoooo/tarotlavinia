@@ -103,18 +103,23 @@
                 document.getElementById('button-310672').href = url; 
             </script>
 
-            <!-- Google tag (gtag.js) -->
-            <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXX"></script>
-            <script>
-                window.dataLayer = window.dataLayer || [];
+           <!-- Event snippet for tarot conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-11093495835/U9ZNCOPJp58ZEJug5akp',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 
-                function gtag() {
-                    dataLayer.push(arguments);
-                }
-                gtag('js', new Date());
-
-                gtag('config', 'G-XXXXXXX');
-            </script>
 
           <!-- Meta Pixel Code -->
 <script>
